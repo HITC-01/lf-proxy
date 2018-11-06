@@ -5,20 +5,22 @@
   <title>SoundCloud player</title>
   <link href="https://a-v2.sndcdn.com/assets/images/sc-icons/favicon-2cadd14b.ico" rel="icon">
   <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+      crossorigin="anonymous">
 </head>
   <body>
     <div id="nav"></div>
     <div id="player"></div>
-    <div id="Comments"></div>
+    <div id="comment"></div>
     <div id="user"></div>
     <div id="related"></div>
+    <div id="viewcomments"></div>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script crossorigin src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
     <script src="http://localhost:3001/bundle.js"></script>
     <script src="http://localhost:3002/bundle.js"></script>
+    <script src="http://localhost:3003/app.js"></script>
     <script src="http://localhost:3004/dist/player-bundle.min.js"></script>
     <script>
       const songId = Math.floor(Math.random() * 100) + 1;
@@ -31,6 +33,10 @@
         document.getElementById('player'),
       );
       ReactDOM.render(
+        React.createElement(Comment, { songId }),
+        document.getElementById('comment'),
+      );
+      ReactDOM.render(
         React.createElement(User, { songId }),
         document.getElementById('user'),
       );
@@ -38,10 +44,10 @@
         React.createElement(SCRelated, { songId }),
         document.getElementById('related'),
       );
-      // ReactDOM.render(
-      //   React.createElement(Reviews),
-      //   document.getElementById('Reviews'),
-      // );
+      ReactDOM.render(
+        React.createElement(ViewComments, { songId }),
+        document.getElementById('viewcomments'),
+      );
     </script>
   </body>
 </html>
