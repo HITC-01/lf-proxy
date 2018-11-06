@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/style.css">
-    <title>FEC Demo</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <title>SoundCloud player</title>
+  <link href="https://a-v2.sndcdn.com/assets/images/sc-icons/favicon-2cadd14b.ico" rel="icon">
+  <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
+</head>
   <body>
-    <div id="Player"></div>
+    <div id="nav"></div>
+    <div id="player"></div>
     <div id="Comments"></div>
-    <div id="User"></div>
-    <div id="Related"></div>
-    <script src="/lib/react.development.js"></script>
-    <script src="/lib/react-dom.development.js"></script>
-    <script src="http://localhost:3001/app.js"></script>
-    <script src="http://localhost:3002/app.js"></script>
-    <script src="http://localhost:3003/app.js"></script>
-    <script src="https://s3-us-west-1.amazonaws.com/head-in-the-clouds-player/player-bundle.min.js"></script>
+    <div id="user"></div>
+    <div id="related"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+    <script src="http://localhost:3001/bundle.js"></script>
+    <script src="http://localhost:3002/bundle.js"></script>
+    <script src="http://localhost:3004/dist/player-bundle.min.js"></script>
     <script>
+      const songId = Math.floor(Math.random() * 100) + 1;
       ReactDOM.render(
-        React.createElement(Player),
-        document.getElementById('Player'),
+        React.createElement(Nav),
+        document.getElementById('nav'),
       );
-      // ReactDOM.render(
-      //   React.createElement(CountDown),
-      //   document.getElementById('CountDown'),
-      // );
-      // ReactDOM.render(
-      //   React.createElement(Related),
-      //   document.getElementById('Related'),
-      // );
+      ReactDOM.render(
+        React.createElement(Player, { songId }),
+        document.getElementById('player'),
+      );
+      ReactDOM.render(
+        React.createElement(User, { songId }),
+        document.getElementById('user'),
+      );
+      ReactDOM.render(
+        React.createElement(SCRelated, { songId }),
+        document.getElementById('related'),
+      );
       // ReactDOM.render(
       //   React.createElement(Reviews),
       //   document.getElementById('Reviews'),
