@@ -1,0 +1,12 @@
+[submodule "user"]
+	path = user
+	url = https://github.com/HITC-01/GK-user.git
+[submodule "related"]
+	path = related
+	url = https://github.com/HITC-01/BP-related_tracks.git
+[submodule "comment"]
+	path = comment
+	url = https://github.com/HITC-01/ms-comment.git
+[submodule "player"]
+	path = player
+	url = https://github.com/HITC-01/lf-player.git
