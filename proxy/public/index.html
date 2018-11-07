@@ -21,7 +21,7 @@
     <script src="http://localhost:3001/bundle.js"></script>
     <script src="http://localhost:3002/bundle.js"></script>
     <script src="http://localhost:3003/app.js"></script>
-    <script src="http://localhost:3004/dist/player-bundle.min.js"></script>
+    <script src="https://s3-us-west-1.amazonaws.com/head-in-the-clouds-player/dist/player-bundle.min.js"></script>
     <script>
       const songId = Math.floor(Math.random() * 100) + 1;
       ReactDOM.render(
@@ -32,10 +32,10 @@
         React.createElement(Player, { songId }),
         document.getElementById('player'),
       );
-      ReactDOM.render(
-        React.createElement(Comment, { songId }),
-        document.getElementById('comment'),
-      );
+      // ReactDOM.render(
+      //   React.createElement(Comment, { songId }),
+      //   document.getElementById('comment'),
+      // );
       ReactDOM.render(
         React.createElement(User, { songId }),
         document.getElementById('user'),
@@ -44,10 +44,10 @@
         React.createElement(SCRelated, { songId }),
         document.getElementById('related'),
       );
-      ReactDOM.render(
-        React.createElement(ViewComments, { songId }),
-        document.getElementById('viewcomments'),
-      );
+      // ReactDOM.render(
+      //   React.createElement(ViewComments, { songId }),
+      //   document.getElementById('viewcomments'),
+      // );
     </script>
   </body>
 </html>
