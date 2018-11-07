@@ -4,13 +4,13 @@ module.exports = (req, res) => {
   splitPath.shift();
 
   const pathStart = splitPath.shift();
-  let targetUrl = `${baseUrl}${process.env.PORT4}/sc`;
+  let targetUrl = `${baseUrl}${process.env.PLAYER_PORT}/sc`;
   if (pathStart.includes('user')) {
-    targetUrl = `${baseUrl}${process.env.PORT1}`;
+    targetUrl = `${baseUrl}${process.env.USER_PORT}`;
   } else if (pathStart.includes('related')) {
-    targetUrl = `${baseUrl}${process.env.PORT2}`;
-  } else if (pathStart.includes('comments')) {
-    targetUrl = `${baseUrl}${process.env.PORT3}`;
+    targetUrl = `${baseUrl}${process.env.RELATED_PORT}`;
+  } else if (pathStart.includes('comment')) {
+    targetUrl = `${baseUrl}${process.env.COMMENTS_PORT}`;
   }
   res.redirect(`${targetUrl}/${splitPath.join('/')}`);
 };
