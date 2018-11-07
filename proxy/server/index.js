@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
+
 const handleRedirect = require('./redirect');
 
 const app = express();
@@ -12,6 +13,11 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(handleRedirect);
+
+// redirects
+app.all('/user/*', handleRedirect.user);
+app.all('/related/*', handleRedirect.related);
+app.all('/comment/*', handleRedirect.comment);
+app.all('/player/*', handleRedirect.player);
 
 app.listen(process.env.PORT || 3000);

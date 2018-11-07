@@ -1,16 +1,27 @@
-module.exports = (req, res) => {
-  const baseUrl = 'http://localhost:';
-  const splitPath = req.path.split('/');
-  splitPath.shift();
+const httpProxy = require('http-proxy');
 
-  const pathStart = splitPath.shift();
-  let targetUrl = `${baseUrl}${process.env.PLAYER_PORT}/sc`;
-  if (pathStart.includes('user')) {
-    targetUrl = `${baseUrl}${process.env.USER_PORT}`;
-  } else if (pathStart.includes('related')) {
-    targetUrl = `${baseUrl}${process.env.RELATED_PORT}`;
-  } else if (pathStart.includes('comment')) {
-    targetUrl = `${baseUrl}${process.env.COMMENTS_PORT}`;
-  }
-  res.redirect(`${targetUrl}/${splitPath.join('/')}`);
+const apiProxy = httpProxy.createProxyServer();
+const serverUser = `http://localhost:${process.env.USER_PORT}`;
+const ServerRelated = `http://localhost:${process.env.RELATED_PORT}`;
+const ServerComment = `http://localhost:${process.env.COMMENTS_PORT}`;
+const ServerPlayer = `http://localhost:${process.env.PLAYER_PORT}`;
+
+module.exports.user = (req, res) => {
+  console.log('redirecting to Server1');
+  apiProxy.web(req, res, { target: serverUser });
+};
+
+module.exports.related = (req, res) => {
+  console.log('redirecting to Server2');
+  apiProxy.web(req, res, { target: ServerRelated });
+};
+
+module.exports.comment =  (req, res) => {
+  console.log('redirecting to Server3');
+  apiProxy.web(req, res, { target: ServerComment });
+};
+
+module.exports.player = (req, res) => {
+  console.log('redirecting to Server4');
+  apiProxy.web(req, res, { target: ServerPlayer });
 };

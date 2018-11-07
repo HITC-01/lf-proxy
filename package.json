@@ -22,6 +22,7 @@
   "homepage": "https://github.com/HITC-01/lf-proxy#readme",
   "dependencies": {
     "dotenv": "^6.1.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "http-proxy": "^1.17.0"
   }
 }
