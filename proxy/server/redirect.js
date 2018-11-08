@@ -7,21 +7,17 @@ const ServerComment = `http://localhost:${process.env.COMMENTS_PORT}`;
 const ServerPlayer = `http://localhost:${process.env.PLAYER_PORT}`;
 
 module.exports.user = (req, res) => {
-  console.log('redirecting to Server1');
   apiProxy.web(req, res, { target: serverUser });
 };
 
 module.exports.related = (req, res) => {
-  console.log('redirecting to Server2');
   apiProxy.web(req, res, { target: ServerRelated });
 };
 
-module.exports.comment =  (req, res) => {
-  console.log('redirecting to Server3');
+module.exports.comment = (req, res) => {
   apiProxy.web(req, res, { target: ServerComment });
 };
 
 module.exports.player = (req, res) => {
-  console.log('redirecting to Server4');
   apiProxy.web(req, res, { target: ServerPlayer });
 };
