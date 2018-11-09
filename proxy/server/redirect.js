@@ -1,10 +1,11 @@
 const httpProxy = require('http-proxy');
 
 const apiProxy = httpProxy.createProxyServer();
+//const serverUser = `${process.env.USER_SERVER}`;
 const serverUser = `http://localhost:${process.env.USER_PORT}`;
-const ServerRelated = `http://localhost:${process.env.RELATED_PORT}`;
-const ServerComment = `http://localhost:${process.env.COMMENTS_PORT}`;
-const ServerPlayer = `http://localhost:${process.env.PLAYER_PORT}`;
+const ServerRelated = `${process.env.RELATED_SERVER}`;
+const ServerComment = `${process.env.COMMENTS_SERVER}`;
+const ServerPlayer = `${process.env.PLAYER_SERVER}`;
 
 module.exports.user = (req, res) => {
   apiProxy.web(req, res, { target: serverUser });
