@@ -68,6 +68,19 @@ blockquote, q {
   flex-direction: column;
 }
 
+#left-second{
+  display:flex;
+  flex-direction: column;
+}
+
+#user {
+  margin-bottom: 20px;
+}
+
+#viewcomments {
+
+}
+
 #right {
   grid-row: play-bottom / bottom;
   grid-column: small / right-pad;
