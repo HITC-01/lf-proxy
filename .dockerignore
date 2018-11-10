@@ -1,0 +1,10 @@
+# ignoring feature dirs
+player/
+comment/
+related/
+user/
+
+proxy/coverage/
+coverage/
+node_modules/
+proxy/spec/
