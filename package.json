@@ -4,7 +4,8 @@
   "description": "proxy server for HITC project by LF",
   "main": "proxy/server/index.js",
   "scripts": {
-    "start": "nodemon proxy/server/index.js"
+    "start": "node proxy/server/index.js",
+    "start:dev": "nodemon proxy/server/index.js"
   },
   "repository": {
     "type": "git",

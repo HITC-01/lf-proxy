@@ -9,7 +9,7 @@ passwords, hosts, and the PORT number for each proxy.
 You also need to run 
 ``` sh
 npm install
-npm start
+npm run start:dev
 npm run react:dev
 ```
 
